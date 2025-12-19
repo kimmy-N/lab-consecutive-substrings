@@ -1,2 +1,20 @@
-Please add your pseudocode to this file
-And a written explanation of your solution
+Solution: Find all consecutive substrings in a string.
+
+Pseudocode:
+function consecutiveSubstrings(string):
+    result = empty list
+    n = length of string
+    for i from 0 to n-1:
+        for j from i to n-1:
+            substring = string[i to j inclusive]
+            result.add(substring)
+    return result
+
+Written Explanation:
+The problem requires finding all consecutive substrings within a given string, where consecutive means the characters are contiguous in the original string. For example, in "abc", the substrings are "a", "ab", "abc", "b", "bc", "c".
+
+The solution uses a brute-force approach with two nested loops. The outer loop selects each possible starting position in the string. The inner loop then selects each possible ending position from the current starting position onwards. For each pair of start and end indices, we extract the substring between them and add it to our result list.
+
+This approach ensures we generate all possible consecutive substrings in the order they appear in the string. For a string of length n, there are n(n+1)/2 possible substrings, which is why the algorithm is O(n^2) in both time and space complexity.
+
+Time complexity: O(n^2), where n is the length of the string, because there are n(n+1)/2 substrings and each substring operation takes O(n) time in the worst case, but the total time is dominated by the quadratic number of operations.
